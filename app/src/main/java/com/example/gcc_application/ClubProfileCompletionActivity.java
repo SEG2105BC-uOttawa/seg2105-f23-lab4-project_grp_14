@@ -7,6 +7,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import java.util.List;
+import java.util.ArrayList;
+import android.widget.MultiAutoCompleteTextView;
 
 public class ClubProfileCompletionActivity extends AppCompatActivity {
 
@@ -15,9 +17,8 @@ public class ClubProfileCompletionActivity extends AppCompatActivity {
     private EditText mainContactNameEditText;
     private EditText phoneNumberEditText;
     private EditText addressEditText;
-
-    // Database helper instance
     private DatabaseHelper databaseHelper;
+    private MultiAutoCompleteTextView eventMultiAutoCompleteTextView;
 
     // Other variables
     private String clubId; // Assuming clubId is declared and initialized somewhere
@@ -32,6 +33,8 @@ public class ClubProfileCompletionActivity extends AppCompatActivity {
         mainContactNameEditText = findViewById(R.id.mainContactNameEditText);
         phoneNumberEditText = findViewById(R.id.phoneNumberEditText);
         addressEditText = findViewById(R.id.addressEditText);
+        eventMultiAutoCompleteTextView = findViewById(R.id.eventMultiAutoCompleteTextView);
+
 
         // Initialize database helper
         databaseHelper = new DatabaseHelper(this);
@@ -108,13 +111,20 @@ public class ClubProfileCompletionActivity extends AppCompatActivity {
     }
 
     private List<String> getSelectedEvents() {
-        // Implement method to get selected events from the UI
-        // Return a list of event IDs or names
-        // This depends on how events are represented in your app
-        // For example, you might have a list of checkboxes or a multi-selection spinner
-        // and you would iterate through the UI elements to determine the selected events
-        // and return them as a List<String>.
-        return null; // Placeholder, replace with actual implementation
+        List<String> selectedEvents = new ArrayList<>();
+
+        // Get the selected events from the MultiAutoCompleteTextView
+        String selectedEventsText = eventMultiAutoCompleteTextView.getText().toString().trim();
+
+        // Split the selected events text into individual events (assuming they are separated by commas)
+        String[] eventsArray = selectedEventsText.split(",");
+
+        // Trim and add each event to the list
+        for (String event : eventsArray) {
+            selectedEvents.add(event.trim());
+        }
+
+        return selectedEvents;
     }
 
     private void showToast(String message) {
