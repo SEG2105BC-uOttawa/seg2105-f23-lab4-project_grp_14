@@ -10,10 +10,27 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Lab_4"
+        android:theme="@style/Theme.GCC_Application"
         tools:targetApi="31">
         <activity
-            android:name=".ProfileActivity"
+            android:name=".ClubProfileCompletionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginParticipantSuccess"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".LoginClubMemberSuccess"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".LoginAdminSuccess"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -32,6 +49,11 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true" />
+        <activity android:name=".WelcomeActivity" />
+        <activity android:name=".RegistrationActivity" />
     </application>
 
 </manifest>
