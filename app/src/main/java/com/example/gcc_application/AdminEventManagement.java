@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import android.database.sqlite.SQLiteDatabase;
 import android.widget.Toast;
 
-public class AdminEventManagment extends AppCompatActivity {
+public class AdminEventManagement extends AppCompatActivity {
 
     static String event_details;
     static String event_type;
