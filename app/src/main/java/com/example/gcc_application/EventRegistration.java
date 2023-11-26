@@ -66,12 +66,12 @@ public class EventRegistration extends AppCompatActivity {
                         "part of a stage race");
                 break;
             default:
-                throw new IllegalStateException("Unexpected value: " + AdminEventManagment.event_type);
+                throw new IllegalStateException("Unexpected value: " + AdminEventManagement.event_type);
         }
 
         if (editingEvent){//if we're coming to this activity to edit an event
-            String details = database.getEventDetails(AdminEventManagment.event_name);
-            String requirements = database.getEventRequirements(AdminEventManagment.event_name);
+            String details = database.getEventDetails(AdminEventManagement.event_name);
+            String requirements = database.getEventRequirements(AdminEventManagement.event_name);
 
             // Define regular expressions to match Description, Date, and Route
             Pattern datePattern = Pattern.compile("Date: (.+?)\\n");
@@ -113,7 +113,7 @@ public class EventRegistration extends AppCompatActivity {
                 paceRequirement.setText(pace_requirement);
             }
 
-            eventName.setText(AdminEventManagment.event_name);
+            eventName.setText(AdminEventManagement.event_name);
 
             defaultEventName = eventName.getText().toString().trim();
             defaultEventDate = eventDate.getText().toString().trim();
@@ -132,7 +132,7 @@ public class EventRegistration extends AppCompatActivity {
             String level_requirement = levelRequirement.getText().toString().trim();
             String pace_requirement = paceRequirement.getText().toString().trim();
 
-            String event_details = "Description: " + AdminEventManagment.getEventDetails() + "\nDate: " + event_date + "\nRoute: " + event_route;
+            String event_details = "Description: " + AdminEventManagement.getEventDetails() + "\nDate: " + event_date + "\nRoute: " + event_route;
             String event_requirements = "Age requirement: " + age_requirement + "\nLevel requirement: " + level_requirement + "\nPace Requirement: " + pace_requirement;
 
             if (event_name.isEmpty() || event_route.isEmpty() || event_date.isEmpty() || age_requirement.isEmpty() || level_requirement.isEmpty() || pace_requirement.isEmpty()) {
@@ -161,7 +161,7 @@ public class EventRegistration extends AppCompatActivity {
                         database.editEvent(defaultEventName, event_name, "Time Trial", event_details, event_requirements);
 
                         Toast.makeText(EventRegistration.this, "Event updated successfully", Toast.LENGTH_SHORT).show();
-                        Intent registerIntent = new Intent(EventRegistration.this, AdminEventManagment.class);
+                        Intent registerIntent = new Intent(EventRegistration.this, AdminEventManagement.class);
                         startActivity(registerIntent);
                         finish();                    }
                 });
@@ -179,7 +179,7 @@ public class EventRegistration extends AppCompatActivity {
                         database.editEvent(defaultEventName, event_name, "Road Stage Race", event_details, event_requirements);
 
                         Toast.makeText(EventRegistration.this, "Event updated successfully", Toast.LENGTH_SHORT).show();
-                        Intent registerIntent = new Intent(EventRegistration.this, AdminEventManagment.class);
+                        Intent registerIntent = new Intent(EventRegistration.this, AdminEventManagement.class);
                         startActivity(registerIntent);
                         finish();                    }
                 });
@@ -196,7 +196,7 @@ public class EventRegistration extends AppCompatActivity {
                         database.editEvent(defaultEventName, event_name, "Road Race", event_details, event_requirements);
 
                         Toast.makeText(EventRegistration.this, "Event updated successfully", Toast.LENGTH_SHORT).show();
-                        Intent registerIntent = new Intent(EventRegistration.this, AdminEventManagment.class);
+                        Intent registerIntent = new Intent(EventRegistration.this, AdminEventManagement.class);
                         startActivity(registerIntent);
                         finish();
 
@@ -207,10 +207,10 @@ public class EventRegistration extends AppCompatActivity {
 
 
             } else {
-                boolean isInserted = database.addEvent(event_name, AdminEventManagment.getEventType(), event_details, event_requirements);
+                boolean isInserted = database.addEvent(event_name, AdminEventManagement.getEventType(), event_details, event_requirements);
                 if (isInserted) {
                     Toast.makeText(EventRegistration.this, "Event registered successfully", Toast.LENGTH_SHORT).show();
-                    Intent registerIntent = new Intent(EventRegistration.this, AdminEventManagment.class);
+                    Intent registerIntent = new Intent(EventRegistration.this, AdminEventManagement.class);
                     startActivity(registerIntent);
                     finish();
                 } else {
