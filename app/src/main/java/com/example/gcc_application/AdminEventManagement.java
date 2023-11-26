@@ -64,7 +64,7 @@ public class AdminEventManagement extends AppCompatActivity {
     }
 
     public void addEventBtn(View view) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(AdminEventManagment.this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(AdminEventManagement.this);
         builder.setTitle("Add Event");
         builder.setMessage("Type of event:");
 
@@ -79,7 +79,7 @@ public class AdminEventManagement extends AppCompatActivity {
 
 
                 event_type = "Time Trial";
-                Intent registerIntent = new Intent(AdminEventManagment.this, EventRegistration.class);
+                Intent registerIntent = new Intent(AdminEventManagement.this, EventRegistration.class);
                 registerIntent.putExtra("event type", "Time Trial");
                 startActivity(registerIntent);
             }
@@ -97,7 +97,7 @@ public class AdminEventManagement extends AppCompatActivity {
 
 
                 event_type = "Road Stage Race";
-                Intent registerIntent = new Intent(AdminEventManagment.this, EventRegistration.class);
+                Intent registerIntent = new Intent(AdminEventManagement.this, EventRegistration.class);
                 registerIntent.putExtra("event type", "Road Stage Race");
                 startActivity(registerIntent);
             }
@@ -114,7 +114,7 @@ public class AdminEventManagement extends AppCompatActivity {
 
 
                 event_type = "Road Race";
-                Intent registerIntent = new Intent(AdminEventManagment.this, EventRegistration.class);
+                Intent registerIntent = new Intent(AdminEventManagement.this, EventRegistration.class);
                 registerIntent.putExtra("event type", "Road Race");
                 startActivity(registerIntent);
             }
@@ -134,7 +134,7 @@ public class AdminEventManagement extends AppCompatActivity {
     }
 
     private void showAlertDialog(String selectedItem) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(AdminEventManagment.this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(AdminEventManagement.this);
         builder.setTitle(selectedItem);
         //builder.setMessage("Type of event:");
         builder.setPositiveButton("Edit Event", new DialogInterface.OnClickListener() {
@@ -143,7 +143,7 @@ public class AdminEventManagement extends AppCompatActivity {
                 // Handle "Edit Event" button click
                 event_name = selectedItem;
                 editEvent = true;
-                Intent registerIntent = new Intent(AdminEventManagment.this, EventRegistration.class);
+                Intent registerIntent = new Intent(AdminEventManagement.this, EventRegistration.class);
                 registerIntent.putExtra("editing event", editEvent);
                 registerIntent.putExtra("event type", database.getEventType(event_name));
                 startActivity(registerIntent);
