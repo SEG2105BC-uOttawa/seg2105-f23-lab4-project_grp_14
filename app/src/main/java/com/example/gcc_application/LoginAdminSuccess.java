@@ -28,7 +28,7 @@ public class LoginAdminSuccess extends AppCompatActivity {
     }
 
     public void eventManagementBtnClick(View view){
-        Intent myIntent = new Intent(LoginAdminSuccess.this, AdminEventManagment.class);
+        Intent myIntent = new Intent(LoginAdminSuccess.this, AdminEventManagement.class);
         startActivity(myIntent);
     }
 
